@@ -1,5 +1,5 @@
 #!/bin/sh
-. ./common.sh
+. ../../main/common.sh
 
 #FOR NOW IT ACTS LIKE KEY NOT FOUND ERROR TEST.
 echo "${yellow}#========Step 1: Generate test wallet ========#${reset}"

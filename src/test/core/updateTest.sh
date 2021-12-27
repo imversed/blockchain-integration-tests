@@ -1,5 +1,5 @@
 #!/bin/sh
-. ./common.sh
+. ../../main/common.sh
 
 # issue denom
 echo "${yellow}========Step 1: Issuing Denom========${reset}"

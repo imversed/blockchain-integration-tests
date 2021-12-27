@@ -1,5 +1,5 @@
 #!/bin/sh
-. ./common.sh
+. ../../main/common.sh
 
 # issue denom
 

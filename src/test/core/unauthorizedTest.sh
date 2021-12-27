@@ -1,6 +1,5 @@
 #!/bin/sh
-
-. ./common.sh
+. ../../main/common.sh
 
 #unauthorized issue test
 

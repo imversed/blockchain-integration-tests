@@ -1,7 +1,7 @@
 #!/bin/sh
-. ./core/common.sh
+. ../../main/common.sh
 
-# issue denom
+#issue denom
 echo "${yellow}========Step 1: Issuing Denom========${reset}"
 hash=$(yes | imversed tx nft issue "$denom" --from="$address" --name="$denom" --mint-restricted=false --update-restricted=false --chain-id=imversed --fees=200nimv --oracle-url="$oracle_url" --schema==https://metachain-web-staging.fdvr.co/nft/schemas/schema.json --node=http://metachain-staging.fdvr.co:26657 | grep -o 'txhash:.*')
 txhash=$(echo "$hash" | sed 's/txhash: //g')
@@ -74,4 +74,4 @@ then echo "${red} Test Failed. Please check full response: ${reset}"
       echo "${red} $log ${reset}"
 else echo "${green} Test Passed, nft supplied ${reset}"
 fi
-## transfer coins
+# transfer coins
