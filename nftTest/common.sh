@@ -12,6 +12,7 @@
 #==========================#
 
 random=$(openssl rand -hex 8)
+user="testuser""$random"
 denom="test""$random"
 address="imv1szff7jw36thxct4smg8vlxunktxn4w0sr4p7tj"
 recipient="imv1x2ft5kx5vlj93gymyveulha5sepcq9mwlnpzmu"

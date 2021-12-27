@@ -15,6 +15,7 @@ then echo "${red} Test Failed. Check logs: ${reset}"
       echo "${red} $log ${reset}"
 else echo "${green} Test Passed. Denom issued ${reset}"
 fi
+
 # check oracle url
 sleep 5
 echo "${yellow}========Oracle URL========${reset}"
