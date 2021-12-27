@@ -1,5 +1,5 @@
 #!/bin/sh
-. ../../main/common.sh
+. ~/imv-ecommerce-autotests/envnft.profile
 # issue denom
 echo "${yellow}========Step 1: Issuing Denom========${reset}"
 hash=$(yes | imversed tx nft issue $denom --from=$address --name=$denom --mint-restricted=false --update-restricted=false --chain-id=imversed --fees=200nimv --oracle-url=$oracle_url --schema==https://metachain-web-staging.fdvr.co/nft/schemas/schema.json --node=http://metachain-staging.fdvr.co:26657 | grep -o 'txhash:.*')

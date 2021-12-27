@@ -1,5 +1,5 @@
 #!/bin/sh
-. ../../main/common.sh
+. ~/imv-ecommerce-autotests/envnft.profile
 
 #unauthorized issue test
 

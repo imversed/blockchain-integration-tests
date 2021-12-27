@@ -1,5 +1,5 @@
 #!/bin/sh
-. ../../main/common.sh
+. ~/imv-ecommerce-autotests/envnft.profile
 
 #FOR NOW IT ACTS LIKE KEY NOT FOUND ERROR TEST.
 echo "${yellow}#========Step 1: Generate test wallet ========#${reset}"
