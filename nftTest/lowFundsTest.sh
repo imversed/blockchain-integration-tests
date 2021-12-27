@@ -1,15 +1,7 @@
 #!/bin/sh
-
-denom="coin7"
-address="imv18slcwh3gkxk5r8mzfedrc242zp99f2fcfsh9z9"
-recipient="imv1x2ft5kx5vlj93gymyveulha5sepcq9mwlnpzmu"
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-yellow=$(tput setaf 3)
-reset=$(tput sgr0)
+. ./common.sh
 
 #FOR NOW IT ACTS LIKE KEY NOT FOUND ERROR TEST.
-
 echo "${yellow}#========Step 1: Generate test wallet ========#${reset}"
 rc=$(imversed keys add pashok | grep -o 'address:.*')
 wallet=$(echo "$rc" | sed 's/address: //g')

@@ -1,28 +1,9 @@
 #!/bin/sh
-
-#Var legend:
-#denom  - Denom id, Denom name
-#adress  - Your address
-#recipient - recipient address
-#======Response Codes======#
-#RC  - response code
-#QRC - query response code
-#TRC - transfer response code
-#MRC - mint response code
-#==========================#
-
-denom="team715"
-address="imv1szff7jw36thxct4smg8vlxunktxn4w0sr4p7tj"
-recipient="imv1x2ft5kx5vlj93gymyveulha5sepcq9mwlnpzmu"
-oracle_url=https://api-staging.fdvr.co/instagram-nft/oracle-validate
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-yellow=$(tput setaf 3)
-reset=$(tput sgr0)
+. ./common.sh
 
 # issue denom
 echo "${yellow}========Step 1: Issuing Denom========${reset}"
-hash=$(yes | imversed tx nft issue $denom --from=$address --name=$denom --mint-restricted=false --update-restricted=false --chain-id=imversed --fees=200nimv --oracle-url=$oracle_url --schema==https://metachain-web-staging.fdvr.co/nft/schemas/schema.json --node=http://metachain-staging.fdvr.co:26657 | grep -o 'txhash:.*')
+hash=$(yes | imversed tx nft issue "$denom" --from="$address" --name="$denom" --mint-restricted=false --update-restricted=false --chain-id=imversed --fees=200nimv --oracle-url="$oracle_url" --schema==https://metachain-web-staging.fdvr.co/nft/schemas/schema.json --node=http://metachain-staging.fdvr.co:26657 | grep -o 'txhash:.*')
 txhash=$(echo "$hash" | sed 's/txhash: //g')
 echo "$txhash"
 sleep 5
@@ -56,7 +37,7 @@ fi
 # mint nft
 echo "${yellow}========Step 3: Minting NFT========${reset}"
 sleep  5
-mrc=$(yes | imversed tx nft mint $denom  $denom  --recipient="$address" --from="$address" --node=http://metachain-staging.fdvr.co:26657 --fees=200nimv | grep -o 'txhash:.*')
+mrc=$(yes | imversed tx nft mint "$denom"  "$denom"  --recipient="$address" --from="$address" --node=http://metachain-staging.fdvr.co:26657 --fees=200nimv | grep -o 'txhash:.*')
 txhash=$(echo "$mrc" | sed 's/txhash: //g')
 echo "$txhash"
 sleep 5
@@ -71,7 +52,7 @@ fi
 # transfer nft
 echo "${yellow}========Step 4: Transfering NFT========${reset}"
 sleep 5
-trc=$(yes | imversed tx nft transfer $recipient $denom $denom --from=$address --node=http://metachain-staging.fdvr.co:26657 --fees=200nimv | grep -o 'txhash:.*')
+trc=$(yes | imversed tx nft transfer "$recipient" "$denom" "$denom" --from="$address" --node=http://metachain-staging.fdvr.co:26657 --fees=200nimv | grep -o 'txhash:.*')
 txhash=$(echo "$trc" | sed 's/txhash: //g')
 echo "$txhash"
 sleep 5
@@ -86,12 +67,11 @@ fi
 # check nft supply
 echo "${yellow}========Step 5: Checking NFT Supplied========${reset}"
 sleep 5
-SUP=$(imversed query nft supply $denom  --node=http://metachain-staging.fdvr.co:26657 | grep -o 'amount:.*')
+SUP=$(imversed query nft supply "$denom"  --node=http://metachain-staging.fdvr.co:26657 | grep -o 'amount:.*')
 if [ "$SUP" != 'amount: "1"' ]
 then echo "${red} Test Failed. Please check full response: ${reset}"
-      log=$(imversed query nft supply $denom  --node=http://metachain-staging.fdvr.co:26657)
+      log=$(imversed query nft supply "$denom"  --node=http://metachain-staging.fdvr.co:26657)
       echo "${red} $log ${reset}"
 else echo "${green} Test Passed, nft supplied ${reset}"
 fi
-
 ## transfer coins

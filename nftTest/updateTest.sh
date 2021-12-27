@@ -1,22 +1,5 @@
 #!/bin/sh
-#Var legend:
-#denom  - Denom id, Denom name
-#adress  - Your address
-#recipient - recipient address
-#======Response Codes======#
-#RC  - response code
-#QRC - query response code
-#TRC - transfer response code
-#MRC - mint response code
-#==========================#
-denom="coinupdate3"
-address="imv1szff7jw36thxct4smg8vlxunktxn4w0sr4p7tj"
-oracle_url=https://api-staging.fdvr.co/instagram-nft/oracle-validate
-oracle_url_edit="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-yellow=$(tput setaf 3)
-reset=$(tput sgr0)
+. ./common.sh
 
 # issue denom
 echo "${yellow}========Step 1: Issuing Denom========${reset}"

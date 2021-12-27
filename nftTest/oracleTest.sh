@@ -1,23 +1,5 @@
 #!/bin/sh
-
-#Var legend:
-#denom  - Denom id, Denom name
-#adress  - Your address
-#recipient - recipient address
-#======Response Codes======#
-#RC  - response code
-#QRC - query response code
-#TRC - transfer response code
-#MRC - mint response code
-#==========================#
-
-denom="team715"
-address="imv1szff7jw36thxct4smg8vlxunktxn4w0sr4p7tj"
-oracle_url=https://api-staging.fdvr.co/instagram-nft/oracle-validate
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-yellow=$(tput setaf 3)
-reset=$(tput sgr0)
+. ./common.sh
 
 # issue denom
 echo "${yellow}========Step 1: Issuing Denom========${reset}"
@@ -34,6 +16,7 @@ then echo "${red} Test Failed. Check logs: ${reset}"
 else echo "${green} Test Passed. Denom issued ${reset}"
 fi
 # check oracle url
+sleep 5
 echo "${yellow}========Oracle URL========${reset}"
 rc=$(imversed q nft denom $denom --node=http://metachain-staging.fdvr.co:26657 | grep -o 'oracle_url:.*')
 oracle=$(echo "$rc" | sed 's/oracle_url: //g')

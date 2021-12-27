@@ -2,7 +2,6 @@
 
 denom="coin6"
 address="imv1szff7jw36thxct4smg8vlxunktxn4w0sr4p7tj"
-recipient="imv1x2ft5kx5vlj93gymyveulha5sepcq9mwlnpzmu"
 red=$(tput setaf 1)
 green=$(tput setaf 2)
 yellow=$(tput setaf 3)
