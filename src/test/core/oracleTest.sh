@@ -9,10 +9,10 @@ sleep 5
 rc=$(imversed q tx --type=hash "$txhash" --node=http://metachain-staging.fdvr.co:26657 | grep -o 'code:.*')
 echo "$rc"
 if [ "$rc" != "code: 0" ]
-then echo "${red} Test Failed. Check logs: ${reset}"
+then echo "${red} oracleTest1.sh Failed. Check logs: ${reset}"
       log=$(imversed q tx --type=hash "$txhash" --node=http://metachain-staging.fdvr.co:26657 | grep -o 'raw_log:.*')
       echo "${red} $log ${reset}"
-else echo "${green} Test Passed. Denom issued ${reset}"
+else echo "${green} oracleTest1.sh Passed. Denom issued ${reset}"
 fi
 
 # check oracle url
@@ -21,6 +21,6 @@ echo "${yellow}========Oracle URL========${reset}"
 rc=$(imversed q nft denom $denom --node=http://metachain-staging.fdvr.co:26657 | grep -o 'oracle_url:.*')
 oracle=$(echo "$rc" | sed 's/oracle_url: //g')
 if [ "$oracle" != "$oracle_url" ]
-then echo "${red} Test Failed. Check oracle_url ${reset}"
-else echo "${green} Test Passed. oracle_url valid ${reset}"
+then echo "${red} oracleTest2.sh Failed. Check oracle_url ${reset}"
+else echo "${green} oracleTest2.sh Passed. oracle_url valid ${reset}"
 fi

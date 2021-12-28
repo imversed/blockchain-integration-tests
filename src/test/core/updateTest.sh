@@ -25,9 +25,9 @@ sleep 5
 rc=$(imversed q tx --type=hash "$txhash" --node=http://metachain-staging.fdvr.co:26657 | grep -o 'name:.*\|oracle_url:.*\|code:.*')
 echo "$rc"
 if [[ "$rc" != *"name: "$denom"-edited"* ]] || [[ "$rc" != *"oracle_url: "$oracle_url_edit""* ]] || [[ "$rc" != *"code: 0"* ]]
-then echo "${red} Test Failed. Check logs: ${reset}"
+then echo "${red} updateTest.sh Failed. Check logs: ${reset}"
       log=$(imversed q tx --type=hash "$txhash" --node=http://metachain-staging.fdvr.co:26657 | grep -o 'raw_log:.*')
       echo "${red} $log ${reset}"
-else echo "${green} Test Passed. Denom updated ${reset}"
+else echo "${green} updateTest.sh Passed. Denom updated ${reset}"
 fi
 

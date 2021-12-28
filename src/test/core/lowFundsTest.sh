@@ -17,6 +17,7 @@ sleep 5
 rc=$(imversed q tx --type=hash "$txhash" --node=http://metachain-staging.fdvr.co:26657 | grep -o 'code:.*')
 echo "$rc"
 if [ "$rc" != "code: 0" ]
-then echo "${green} Test Passed. User cant pay for issue ${reset}"
-else echo "${red} Test Failed. ${reset}"
+then echo "${green} lowFundsTest.sh Passed. User cant pay for issue ${reset}"
+else echo "${red} lowFundsTest.sh Failed. ${reset}"
 fi
+

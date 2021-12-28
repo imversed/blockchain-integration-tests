@@ -9,6 +9,6 @@ sleep 5
 echo "${yellow}========Step 2: Verifying error code========${reset}"
 
 if [[ "$hash" != *"code: 0"* ]]
-then echo "${green} Test Passed. Insufficient Fees ${reset}"
-else echo "${red} Test Failed. ${reset}"
+then echo "${green} insuFeeTest.sh Passed. Insufficient Fees ${reset}"
+else echo "${red} insuFeeTest.sh Test Failed. ${reset}"
 fi

@@ -1,23 +1,30 @@
 #!/bin/bash
 
-sh test/core/nftTest.sh
+totalPass=0
+totalFail=0
 
-echo "Next test."
+runTest () {
+    peremen=$(sh "$1")
+    pass=$(echo "$peremen" | grep -oh "\w*Passed\w*" | wc -l)
+    fail=$(echo "$peremen" | grep -oh "\w*Failed\w*" | wc -l)
 
-sh test/core/oracleTest.sh
+    totalPass=$(($totalPass + $pass))
+    totalFail=$(($totalFail + $fail))
+    echo "Current running test: $1"
+    echo "$peremen"
+    }
 
-echo "Next test."
 
-sh test/core/unauthorizedTest.sh
+runTest test/core/nftTest.sh
+runTest test/core/oracleTest.sh
+runTest test/core/updateTest.sh
+runTest test/core/insuFeeTest.sh
+runTest test/core/unauthorizedTest.sh
+runTest test/core/lowFundsTest.sh
 
-echo "Next test."
-
-sh test/core/insuFeeTest.sh
-
-echo "Next test."
-
-sh test/core/lowFundsTest.sh
-
-echo "Next test."
-
-sh test/core/updateTest.sh
+echo "==============="
+echo "Tests Passed: $totalPass"
+echo "==============="
+echo "Tests Failed: $totalFail"
+echo "==============="
+echo "Total Stability: $(((100 * $totalPass)/($totalPass + $totalFail)))%"
