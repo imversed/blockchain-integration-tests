@@ -1,20 +1,20 @@
 #!/bin/bash
-
+#Defined total tests being run Pass\Fail
 totalPass=0
 totalFail=0
 
+#method to run and check if test failed and passed
 runTest () {
-    peremen=$(sh "$1")
-    pass=$(echo "$peremen" | grep -oh "\w*Passed\w*" | wc -l)
-    fail=$(echo "$peremen" | grep -oh "\w*Failed\w*" | wc -l)
+    runner=$(sh "$1")
+    pass=$(echo "$runner" | grep -oh "\w*Passed\w*" | wc -l)
+    fail=$(echo "$runner" | grep -oh "\w*Failed\w*" | wc -l)
 
     totalPass=$(($totalPass + $pass))
     totalFail=$(($totalFail + $fail))
-    echo "Current running test: $1"
-    echo "$peremen"
+    echo "Currently running test: $1"
+    echo "$runner"
     }
-
-
+#suite
 runTest test/core/nftTest.sh
 runTest test/core/oracleTest.sh
 runTest test/core/updateTest.sh
@@ -22,6 +22,8 @@ runTest test/core/insuFeeTest.sh
 runTest test/core/unauthorizedTest.sh
 runTest test/core/lowFundsTest.sh
 
+
+#test results
 echo "==============="
 echo "Tests Passed: $totalPass"
 echo "==============="
