@@ -1,4 +1,6 @@
 #!/bin/bash
+. ~/imv-ecommerce-autotests/envnft.profile
+
 #Defined total tests being run Pass\Fail
 totalPass=0
 totalFail=0
