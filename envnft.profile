@@ -13,6 +13,7 @@ export random=$(openssl rand -hex 8)
 export user="testuser""$random"
 export denom="test""$random"
 export address="imv1szff7jw36thxct4smg8vlxunktxn4w0sr4p7tj"
+export addressTransferTest="imv142d7mk6wujnklesrn5uy53kndv4arqaw3trrpn"
 export recipient="imv1x2ft5kx5vlj93gymyveulha5sepcq9mwlnpzmu"
 export oracle_url="https://api-staging.fdvr.co/instagram-nft/oracle-validate"
 
