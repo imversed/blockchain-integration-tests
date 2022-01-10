@@ -23,7 +23,7 @@ runTest test/core/updateTest.sh
 runTest test/core/insuFeeTest.sh
 runTest test/core/unauthorizedTest.sh
 runTest test/core/lowFundsTest.sh
-
+runtest test/core/transferFunds.sh
 
 #test results
 echo "==============="
