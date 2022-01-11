@@ -18,7 +18,8 @@ export recipient="imv1x2ft5kx5vlj93gymyveulha5sepcq9mwlnpzmu"
 export oracle_url="https://api-staging.fdvr.co/instagram-nft/oracle-validate"
 
 #======Stylized test results======#
-export red=$(tput setaf 1)
+export TERM=xterm-color
+export red=$(tput -T setaf 1)
 export green=$(tput setaf 2)
 export yellow=$(tput setaf 3)
 export reset=$(tput sgr0)

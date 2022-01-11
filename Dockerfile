@@ -11,4 +11,5 @@ RUN ls -l /usr/bin/imversed /root/imv-ecommerce-autotests/
 RUN yes mouse public panel speak educate domain course object eternal sheriff angry stove blanket fence notice banner whale orbit ring census arctic suffer purity crisp | imversed keys add niko-test --recover
 RUN yes coffee rail summer tenant film marble airport clown govern trap reform tip armed nation deny route lock seek delay ribbon hub kingdom shift plate | imversed keys add niko-test-wallet --recover
 WORKDIR /root/imv-ecommerce-autotests/
+ENV TERM xterm-256color
 #CMD tail -f /dev/null

@@ -1,6 +1,7 @@
 #!/bin/sh
 . ~/imv-ecommerce-autotests/envnft.profile
 
+
 mainBalance=$(imversed query bank balances $address --node=http://metachain-staging.fdvr.co:26657 | grep -o 'amount:.*')
 mainBalance=$(echo $mainBalance | sed 's/amount: //g; s/"//g')
 testBalanceStart=$(imversed query bank balances $addressTransferTest --node=http://metachain-staging.fdvr.co:26657 | grep -o 'amount:.*')
