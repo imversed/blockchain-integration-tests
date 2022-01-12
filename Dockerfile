@@ -1,7 +1,8 @@
 FROM golang:1.16.5-alpine AS build-env
 WORKDIR /root
 USER root
-RUN apk add openssl ncurses --no-cache libc6-compat
+RUN apk add bash openssl ncurses --no-cache libc6-compat --update npm
+RUN npm i -g xunit-viewer
 COPY /src envnft.profile pub.key / /root/imv-ecommerce-autotests/
 COPY imversed /usr/bin
 COPY client.toml /root/.imversed/config/
