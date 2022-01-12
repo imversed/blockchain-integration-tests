@@ -3,6 +3,7 @@ WORKDIR /root
 USER root
 RUN apk add bash openssl ncurses --no-cache libc6-compat --update npm
 RUN npm i -g xunit-viewer
+RUN npm i -g bats
 COPY /src envnft.profile pub.key / /root/imv-ecommerce-autotests/
 COPY imversed /usr/bin
 COPY client.toml /root/.imversed/config/
