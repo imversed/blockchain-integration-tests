@@ -16,6 +16,7 @@ export address="imv1szff7jw36thxct4smg8vlxunktxn4w0sr4p7tj"
 export addressTransferTest="imv142d7mk6wujnklesrn5uy53kndv4arqaw3trrpn"
 export recipient="imv1x2ft5kx5vlj93gymyveulha5sepcq9mwlnpzmu"
 export oracle_url="https://api-staging.fdvr.co/instagram-nft/oracle-validate"
+export oracle_url_edit="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
 #======Stylized test results======#
 export TERM=xterm-color
