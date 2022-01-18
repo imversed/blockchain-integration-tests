@@ -17,13 +17,13 @@ runTest () {
     echo "$runner"
     }
 #suite
-runTest test/core/nftTest.sh
-runTest test/core/oracleTest.sh
-runTest test/core/updateTest.sh
-runTest test/core/insuFeeTest.sh
-runTest test/core/unauthorizedTest.sh
-runTest test/core/lowFundsTest.sh
-runTest test/core/transferFundsTest.sh
+runTest nftTest.sh
+runTest oracleTest.sh
+runTest updateTest.sh
+runTest insuFeeTest.sh
+runTest unauthorizedTest.sh
+runTest lowFundsTest.sh
+runTest transferFundsTest.sh
 
 #test results
 echo "==============="
