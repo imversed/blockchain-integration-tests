@@ -1,7 +1,6 @@
 #!/usr/local/bin/bats
 load ~/imv-ecommerce-autotests/envnft.profile
 
-
 #issue denom
 @test "nftTest" {
 echo "${yellow}========Step 1: Issuing Denom========${reset}" >&3
