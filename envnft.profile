@@ -12,6 +12,7 @@
 export random=$(openssl rand -hex 8)
 export user="testuser""$random"
 export denom="test""$random"
+export token="test_token""$random"
 
 export address="imv1szff7jw36thxct4smg8vlxunktxn4w0sr4p7tj"
 export addressTransferTest="imv142d7mk6wujnklesrn5uy53kndv4arqaw3trrpn"
@@ -23,10 +24,7 @@ export oracle_url_edit="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
 #======Stylized test results======#
 export TERM=xterm-color
-export red=$(tput -T setaf 1)
-export green=$(tput setaf 2)
 export yellow=$(tput setaf 3)
-export reset=$(tput sgr0)
 #=================================#
 
 
