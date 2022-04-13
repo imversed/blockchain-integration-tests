@@ -4,7 +4,7 @@ load ~/imv-ecommerce-autotests/envnft.profile
 #issue denom
 @test "nftTest" {
 echo "${yellow}========Step 1: Issuing Denom========${reset}" >&3
-hash=$(yes | imversed tx nft issue "$denom" --from="$address" --name="$denom" --mint-restricted=false --update-restricted=false --chain-id=imversed --fees=200nimv --oracle-url="$oracle_url" --schema==https://metachain-web-staging.fdvr.co/nft/schemas/schema.json --node=http://metachain-staging.fdvr.co:26657 | grep -o 'txhash:.*')
+hash=$(yes | imversed tx nft issue "$denom" --from="$address" --name="$denom" --mint-restricted=false --update-restricted=false --chain-id=imversed-test-1 --fees=200nimv --oracle-url="$oracle_url" --schema==https://metachain-web-staging.fdvr.co/nft/schemas/schema.json --node=http://metachain-staging.fdvr.co:26657 | grep -o 'txhash:.*')
 txhash=$(echo "$hash" | sed 's/txhash: //g')
 echo "$txhash" >&3
 sleep 6
@@ -59,7 +59,7 @@ echo "$SUP" >&3
 #burn nft
 echo "${yellow}=====Step 6: Burn NFT=====${reset}" >&3
 sleep 6
-burn_response=$(yes | imversed tx nft burn "$denom" "$token" --from="$addressTransferTest" --chain-id=imversed --fees=200nimv --node=http://metachain-staging.fdvr.co:26657 | grep -o 'txhash:.*')
+burn_response=$(yes | imversed tx nft burn "$denom" "$token" --from="$addressTransferTest" --chain-id=imversed-test-1 --fees=200nimv --node=http://metachain-staging.fdvr.co:26657 | grep -o 'txhash:.*')
 txhash=$(echo "$burn_response" | sed 's/txhash: //g')
 echo "$txhash" >&3
 sleep 6
