@@ -1,0 +1,8 @@
+#!/bin/bash
+
+yes | imversed keys add validator-imv && \
+imversed init test --chain-id test_123-1 && \
+imversed add-genesis-account validator-imv 100000000000stake && \
+imversed gentx validator-imv 10000000stake --chain-id test_123-1 && \
+imversed collect-gentxs && \
+imversed start
