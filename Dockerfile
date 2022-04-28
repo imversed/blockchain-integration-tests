@@ -28,4 +28,4 @@ RUN ls -l /usr/bin/imversed /root/imv-ecommerce-autotests/
 #setup workdir
 WORKDIR /root/imv-ecommerce-autotests/
 #run a Local Blockchain
-CMD /root/imv-ecommerce-autotests/runChain
+#CMD /root/imv-ecommerce-autotests/runChain
