@@ -1,8 +1,12 @@
 #!/bin/bash
 
-yes | imversed keys add validator-imv && \
 imversed init test --chain-id test_123-1 && \
-imversed add-genesis-account validator-imv 100000000000stake && \
-imversed gentx validator-imv 10000000stake --chain-id test_123-1 && \
+imversed config keyring-backend test && \
+yes | imversed keys add validator-imv && \
+yes mouse public panel speak educate domain course object eternal sheriff angry stove blanket fence notice banner whale orbit ring census arctic suffer purity crisp | imversed keys add niko-test --recover
+yes coffee rail summer tenant film marble airport clown govern trap reform tip armed nation deny route lock seek delay ribbon hub kingdom shift plate | imversed keys add niko-test-wallet --recover
+yes whip turkey van truth consider grape grace mammal return wait fiction case great cradle around measure rack dry home adjust street mercy own report | imversed keys add lowFundsWallet --recover
+imversed add-genesis-account validator-imv 100000000000stake --keyring-backend test && \
+imversed gentx validator-imv 10000000stake --chain-id test_123-1 --keyring-backend test && \
 imversed collect-gentxs && \
 imversed start
