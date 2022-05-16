@@ -1,8 +1,11 @@
-FROM golang:1.16.5-alpine AS build-env
+FROM ubuntu:latest AS build-env
 WORKDIR /root
 USER root
-#install npm ncurses, BATS and libc6
-RUN apk add bash openssl ncurses --no-cache libc6-compat --update npm
+#install golang, npm, ncurses, BATS etc
+RUN apt update
+RUN yes | apt install golang-go bash openssl libncurses5-dev libncursesw5-dev wget curl
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
 RUN npm i -g xunit-viewer
 RUN npm i -g bats
 
@@ -14,11 +17,14 @@ RUN npm i -g bats
 #move important keys, files to test directory in root
 COPY /src envnft.profile pub.key / /root/imv-ecommerce-autotests/
 
-#move binary to bin
-COPY imversed /usr/bin
+#download unpack and move binary to usr/bin
+RUN wget https://s.imversed.com/test-net/imversed_linux_amd64_2.tar.gz
+RUN tar -xf imversed_linux_amd64_2.tar.gz
+RUN mv imversedd /usr/bin/imversed
+#COPY imversed /usr/bin
 
 #move test toml config to container config directory
-#COPY client.toml /root/.imversed/config/
+COPY client.toml /root/.imversed/config/
 
 #setup access to tests and binary
 RUN chmod -R 777 /root/imv-ecommerce-autotests/
