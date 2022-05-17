@@ -24,7 +24,7 @@ RUN mv imversedd /usr/bin/imversed
 #COPY imversed /usr/bin
 
 #move test toml config to container config directory
-COPY client.toml /root/.imversed/config/
+#COPY client.toml /root/.imversed/config/
 
 #setup access to tests and binary
 RUN chmod -R 777 /root/imv-ecommerce-autotests/
