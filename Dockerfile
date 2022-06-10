@@ -3,7 +3,8 @@ WORKDIR /root
 USER root
 #install golang, npm, ncurses, BATS etc
 RUN apt update
-RUN yes | apt install golang-go bash openssl libncurses5-dev libncursesw5-dev wget curl jq
+RUN yes | apt install golang-go bash openssl libncurses5-dev libncursesw5-dev wget curl
+RUN yes | apt-get install jq
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get install -y nodejs
 RUN npm i -g xunit-viewer
