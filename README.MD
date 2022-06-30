@@ -1,7 +1,8 @@
 # Imversed-integration-tests
-Integration tests for Imversed blockchain
+Integration tests for Imversed blockchain.
+
 Current project aims to test our imversed binaries running local blockchain inside docker container.
-Test goal is to cover most of our functionality and provide safe and stable bug free use of imversed.
+Test goals are to cover most of our functionality and provide safe and stable bug free use of imversed.
 Tests are using bats framework and xunit viewer for better visual recognition of test results. 
 That allows us to easily manage, write and maintain any CLI test.
 
